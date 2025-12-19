@@ -64,7 +64,7 @@
 
 ## **Додати нову *програму* в автозапуск:**
 ```
-exec-once = **назва**
+exec-once = назва
 ```
 
 ## **⌨️ Кейбінди (гарячі клавіші)**
@@ -82,7 +82,7 @@ exec-once = **назва**
 ```
 bind = $mainMod, E, exec, thunar
 
-bind = $mainMod SHIFT, S, exec, grim -g "$(slurp)" - | wl-copy**
+bind = $mainMod SHIFT, S, exec, grim -g "$(slurp)" - | wl-copy
 
 ```
 
