@@ -64,9 +64,10 @@
 ## **Додати нову *програму* в автозапуск:**
 exec-once = **назва**
 
-**⌨️ Кейбінди (гарячі клавіші)**
+##**⌨️ Кейбінди (гарячі клавіші)**
 
-## Усі бінди оголошуються через *bind.*
+*Усі бінди оголошуються через *bind.*
+
 | Змінна      | Значення                  |
 | ----------- | ------------------------- |
 | `$mainMod`  | `SUPER` (Windows клавіша) |
@@ -75,10 +76,9 @@ exec-once = **назва**
 
 Приклад:
 
-**bind = $mainMod, Return, exec, $terminal
+
 bind = $mainMod, E, exec, thunar
-bind = $mainMod, Q, killactive
-bind = $mainMod, D, exec, rofi -show drun
+
 bind = $mainMod SHIFT, S, exec, grim -g "$(slurp)" - | wl-copy**
 
 
