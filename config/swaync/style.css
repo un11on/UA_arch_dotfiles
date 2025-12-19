@@ -1,0 +1,165 @@
+/* --- КОЛЬОРИ ПІД ТВІЙ WAYBAR (Catppuccin Mocha + #202020) --- */
+@define-color bg-primary #202020;        /* Такий самий фон, як у Waybar */
+@define-color bg-secondary #2a2a2a;      /* Трохи світліший для блоків */
+@define-color bg-tertiary #313244;       /* Фон кнопок */
+@define-color bg-selected #45475a;       /* Колір при наведенні */
+
+@define-color fg-primary #cdd6f4;        /* Основний текст */
+@define-color fg-secondary #bac2de;      /* Додатковий текст */
+
+@define-color accent-orange #fab387;     /* Оранжевий (для акцентів) */
+@define-color accent-blue #89dceb;       /* Блакитний */
+@define-color accent-red #f38ba8;        /* Червоний */
+
+/* --- ТЕМНО-СИНЯ РАМКА --- */
+@define-color border-color #3b84b5;      
+
+/* ========================================================================
+   ГОЛОВНЕ ВІКНО
+======================================================================== */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Iosevka Nerd Font", monospace;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.control-center {
+    background-color: @bg-primary;
+    border: 2px solid @border-color;     /* Використовуємо синю рамку */
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+
+    /* ВІДСТУПИ, ЩОБ НЕ ЗАКРИВАТИ WAYBAR */
+    margin-top: 10px;
+    margin-bottom: 120px;
+    margin-right: 10px;
+    
+    /* Я видалив max-height, щоб не було помилок */
+}
+
+/* ========================================================================
+   КНОПКИ (ВІДЖЕТИ)
+======================================================================== */
+.widget-buttons-grid {
+    padding: 10px;
+    margin: 0;
+    font-size: 16px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    background: @bg-tertiary;
+    color: @fg-primary;
+    border-radius: 8px;
+    margin: 3px;
+    padding: 10px;
+    min-width: 50px;
+    min-height: 40px;
+    border: none;
+    box-shadow: none;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+    background: @bg-selected;
+}
+
+/* Активна кнопка стає синьою (під колір рамки) */
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
+    background: @border-color; 
+    color: #1e1e2e;
+}
+
+/* ========================================================================
+   ПОВЗУНКИ
+======================================================================== */
+.widget-mpris, .widget-volume, .widget-backlight {
+    background-color: @bg-secondary;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+trough highlight {
+    background: @border-color; /* Синій повзунок */
+    border-radius: 4px;
+}
+
+scale trough {
+    margin: 0 10px;
+    background-color: @bg-tertiary;
+    min-height: 6px;
+    border-radius: 4px;
+}
+
+slider {
+    background-color: @fg-primary;
+    border-radius: 50%;
+}
+
+/* ========================================================================
+   СПОВІЩЕННЯ
+======================================================================== */
+.notification-row {
+    margin: 5px;
+}
+
+.notification {
+    background-color: @bg-secondary;
+    border-radius: 8px;
+    border: 1px solid @bg-tertiary;
+    margin: 5px 0;
+    padding: 0;
+}
+
+.notification-content {
+    padding: 10px;
+}
+
+.summary {
+    font-size: 14px;
+    color: @accent-blue;
+    font-weight: 800;
+}
+
+.body {
+    font-size: 13px;
+    color: @fg-primary;
+}
+
+.time {
+    font-size: 11px;
+    color: @fg-secondary;
+    margin-right: 10px;
+}
+
+/* Кнопка "Очистити" */
+.widget-title {
+    margin: 10px;
+}
+
+.widget-title > button {
+    background: @bg-tertiary;
+    color: @fg-primary;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+}
+
+.widget-title > button:hover {
+    background: @accent-red;
+    color: #1e1e2e;
+}
+
+.widget-dnd {
+    margin: 10px;
+    color: @fg-primary;
+}
+
+.widget-dnd > switch {
+    border-radius: 12px;
+    background: @bg-tertiary;
+}
+
+.widget-dnd > switch:checked {
+    background: @border-color;
+}
