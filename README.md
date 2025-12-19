@@ -86,12 +86,14 @@ bind = $mainMod SHIFT, S, exec, grim -g "$(slurp)" - | wl-copy**
 
 ## 🚀 Встановлення (для Arch Linux)
 
-
+<details>
+  ```
 git clone https://github.com/un11on/UA_arch_dotfiles.git
 cd UA_arch_dotfiles
 chmod +x install.sh
 ./install.sh
-
+  ```
+</details>
 ## Після встановлення
 
 hyprctl reload або reboot
