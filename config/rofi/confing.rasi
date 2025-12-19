@@ -1,0 +1,131 @@
+configuration {
+    modi:                       "drun";
+    show-icons:                 true;
+    display-drun:               "Apps";
+    drun-display-format:        "{name}";
+    font:                       "JetBrainsMono Nerd Font 12";
+}
+
+/* --- ВІКНО --- */
+window {
+    transparency:               "real";
+    location:                   center;
+    anchor:                     center;
+    fullscreen:                 false;
+    width:                      800px;      /* Ширше вікно для сітки */
+    
+    enabled:                    true;
+    margin:                     0px;
+    padding:                    0px;
+    border:                     2px solid;
+    border-radius:              16px;       /* Великі заокруглення */
+    border-color:               #831d1dff;    /* Світло-зелений колір рамки */
+    background-color:           #343f54ff;    /* Світлий фон вікна */
+    cursor:                     "default";
+}
+
+mainbox {
+    enabled:                    true;
+    spacing:                    20px;
+    margin:                     0px;
+    padding:                    30px;
+    border:                     0px solid;
+    border-radius:              0px;
+    background-color:           transparent;
+    children:                   [ "inputbar", "listview" ];
+}
+
+/* --- ПОЛЕ ПОШУКУ --- */
+inputbar {
+    enabled:                    true;
+    spacing:                    10px;
+    margin:                     0px;
+    padding:                    0px;
+    border:                     0px solid;
+    border-radius:              10px;
+    background-color:           transparent;
+    text-color:                 #4e694cff;    /* Темний текст */
+    children:                   [ "prompt", "entry" ];
+}
+
+prompt {
+    enabled:                    true;
+    padding:                    12px 16px;
+    border-radius:              10px;
+    background-color:           #000000ff;    /* Світло-зелений фон для іконки/тексту */
+    text-color:                 #26437eff;    /* Світлий текст */
+}
+
+entry {
+    enabled:                    true;
+    padding:                    12px;
+    background-color:           inherit;
+    text-color:                 inherit;
+    cursor:                     text;
+    placeholder:                "Search...";
+    placeholder-color:          #ff0000ff;
+}
+
+/* --- СІТКА ПРОГРАМ --- */
+listview {
+    enabled:                    true;
+    columns:                    6;          /* 6 стовпчиків */
+    lines:                      3;          /* 3 рядки */
+    cycle:                      true;
+    dynamic:                    true;
+    scrollbar:                  false;
+    layout:                     vertical;
+    reverse:                    false;
+    fixed-height:               true;
+    fixed-columns:              true;
+    
+    spacing:                    15px;
+    margin:                     0px;
+    padding:                    0px;
+    border:                     0px solid;
+    background-color:           transparent;
+    text-color:                 #000000ff;
+    cursor:                     "default";
+}
+
+/* --- ЕЛЕМЕНТИ СІТКИ --- */
+element {
+    enabled:                    true;
+    spacing:                    15px;
+    margin:                     0px;
+    padding:                    20px 10px;  /* Більше простору */
+    border:                     0px solid;
+    border-radius:              16px;       /* Заокруглені елементи */
+    background-color:           #000000ff;    /* Світлий фон елемента */
+    text-color:                 #000000ff;
+    orientation:                vertical;   /* Іконка ЗВЕРХУ, текст ЗНИЗУ */
+    cursor:                     pointer;
+}
+
+element normal.normal {
+    background-color:           inherit;
+    text-color:                 inherit;
+}
+
+/* --- АКТИВНИЙ ЕЛЕМЕНТ --- */
+element selected.normal {
+    background-color:           #ffffffff;    /* Темний фон виділення */
+    text-color:                 rgba(0, 0, 0, 1);    /* Світлий текст на виділенні */
+    border:                     0px solid;
+}
+
+element-icon {
+    background-color:           transparent;
+    text-color:                 inherit;
+    size:                       64px;       /* Великі іконки */
+    cursor:                     inherit;
+}
+
+element-text {
+    background-color:           transparent;
+    text-color:                 inherit;
+    highlight:                  inherit;
+    cursor:                     inherit;
+    vertical-align:             0.5;
+    horizontal-align:           0.5;        /* Текст по центру */
+}
