@@ -1,9 +1,15 @@
 configuration {
-    modi:                       "drun";
+
+    modi:                       "drun,run,window";
     show-icons:                 true;
     display-drun:               "Apps";
+    display-run:                "Run";
+    display-window:             "Window";
     drun-display-format:        "{name}";
+    window-format:              "{w} · {c} · {t}";
     font:                       "JetBrainsMono Nerd Font 12";
+   
+    sidebar-mode:               true;
 }
 
 /* --- ВІКНО --- */
@@ -12,15 +18,15 @@ window {
     location:                   center;
     anchor:                     center;
     fullscreen:                 false;
-    width:                      800px;      /* Ширше вікно для сітки */
+    width:                      800px;
     
     enabled:                    true;
     margin:                     0px;
     padding:                    0px;
     border:                     2px solid;
-    border-radius:              16px;       /* Великі заокруглення */
-    border-color:               #831d1dff;    /* Світло-зелений колір рамки */
-    background-color:           #343f54ff;    /* Світлий фон вікна */
+    border-radius:              16px;
+    border-color:               #831d1dff;
+    background-color:           #343f54ff;
     cursor:                     "default";
 }
 
@@ -32,7 +38,8 @@ mainbox {
     border:                     0px solid;
     border-radius:              0px;
     background-color:           transparent;
-    children:                   [ "inputbar", "listview" ];
+    /* Добавил "mode-switcher" в список детей */
+    children:                   [ "inputbar", "listview", "mode-switcher" ];
 }
 
 /* --- ПОЛЕ ПОШУКУ --- */
@@ -44,7 +51,7 @@ inputbar {
     border:                     0px solid;
     border-radius:              10px;
     background-color:           transparent;
-    text-color:                 #4e694cff;    /* Темний текст */
+    text-color:                 #ffffffff;
     children:                   [ "prompt", "entry" ];
 }
 
@@ -52,25 +59,26 @@ prompt {
     enabled:                    true;
     padding:                    12px 16px;
     border-radius:              10px;
-    background-color:           #000000ff;    /* Світло-зелений фон для іконки/тексту */
-    text-color:                 #26437eff;    /* Світлий текст */
+    background-color:           #831d1dff;
+    text-color:                 #ffffffff;
 }
 
 entry {
     enabled:                    true;
     padding:                    12px;
-    background-color:           inherit;
-    text-color:                 inherit;
+    border-radius:              10px;
+    background-color:           #232a3dff;
+    text-color:                 #ffffffff;
     cursor:                     text;
     placeholder:                "Search...";
-    placeholder-color:          #ff0000ff;
+    placeholder-color:          #ffffff80;
 }
 
 /* --- СІТКА ПРОГРАМ --- */
 listview {
     enabled:                    true;
-    columns:                    6;          /* 6 стовпчиків */
-    lines:                      3;          /* 3 рядки */
+    columns:                    6;
+    lines:                      3;
     cycle:                      true;
     dynamic:                    true;
     scrollbar:                  false;
@@ -84,7 +92,7 @@ listview {
     padding:                    0px;
     border:                     0px solid;
     background-color:           transparent;
-    text-color:                 #000000ff;
+    text-color:                 #ffffffff;
     cursor:                     "default";
 }
 
@@ -93,31 +101,30 @@ element {
     enabled:                    true;
     spacing:                    15px;
     margin:                     0px;
-    padding:                    20px 10px;  /* Більше простору */
+    padding:                    20px 10px;
     border:                     0px solid;
-    border-radius:              16px;       /* Заокруглені елементи */
-    background-color:           #000000ff;    /* Світлий фон елемента */
-    text-color:                 #000000ff;
-    orientation:                vertical;   /* Іконка ЗВЕРХУ, текст ЗНИЗУ */
+    border-radius:              16px;
+    background-color:           transparent;
+    text-color:                 #ffffffff;
+    orientation:                vertical;
     cursor:                     pointer;
 }
 
-element normal.normal {
-    background-color:           inherit;
-    text-color:                 inherit;
+element normal.normal, element alternate.normal {
+    background-color:           transparent;
+    text-color:                 #ffffffff;
 }
 
-/* --- АКТИВНИЙ ЕЛЕМЕНТ --- */
 element selected.normal {
-    background-color:           #ffffffff;    /* Темний фон виділення */
-    text-color:                 rgba(0, 0, 0, 1);    /* Світлий текст на виділенні */
+    background-color:           #ffffffff;
+    text-color:                 #343f54ff;
     border:                     0px solid;
 }
 
 element-icon {
     background-color:           transparent;
     text-color:                 inherit;
-    size:                       64px;       /* Великі іконки */
+    size:                       64px;
     cursor:                     inherit;
 }
 
@@ -127,5 +134,26 @@ element-text {
     highlight:                  inherit;
     cursor:                     inherit;
     vertical-align:             0.5;
-    horizontal-align:           0.5;        /* Текст по центру */
+    horizontal-align:           0.5;
+}
+
+
+mode-switcher {
+    enabled:                    true;
+    spacing:                    10px;
+    background-color:           transparent;
+    text-color:                 #ffffffff;
+}
+
+button {
+    padding:                    12px;
+    border-radius:              10px;
+    background-color:           #232a3dff;   
+    text-color:                 inherit;
+    cursor:                     pointer;
+}
+
+button selected {
+    background-color:           #831d1dff;   
+    text-color:                 #ffffffff;
 }
